@@ -34,29 +34,31 @@ function fetchAdvice() {
 
 // load and display jounral entries
 function loadJournalEntries() {
-  const entriesContainer = document.getElementById("journalEntries");
-  if (!entriesContainer) return;
+  const container = document.getElementById("journalEntries");
+  if (!container) return;
 
   fetch("/api/entries")
     .then(res => res.json())
     .then(entries => {
       if (!entries.length) {
-        entriesContainer.innerText = "No journal entries yet.";
+        container.innerText = "No journal entries yet.";
         return;
       }
 
-      // show newest entries first
-      entries.reverse().forEach(entry => {
+      container.innerHTML = "";
+
+      entries.forEach(entry => {
         const div = document.createElement("div");
-        div.innerHTML = `<strong>${entry.date}</strong> - Mood: ${entry.mood}<br>${entry.text}`;
-        entriesContainer.appendChild(div);
+        div.innerHTML = `<strong>${entry.date}</strong> — Mood: ${entry.mood}<br>${entry.text}<br><br>`;
+        container.appendChild(div);
       });
     })
     .catch(err => {
-      entriesContainer.innerText = "Failed to load entries.";
       console.error("Entry loading error:", err);
+      container.innerText = "Failed to load entries.";
     });
 }
+
 
 
 // make a line chart of moods over time 
@@ -69,7 +71,6 @@ function renderMoodChart() {
     .then(entries => {
       if (!entries.length) return;
 
-      // convert dates and moods to chart data
       const labels = entries.map(e => e.date);
       const moods = entries.map(e => moodToValue(e.mood));
 
@@ -82,14 +83,13 @@ function renderMoodChart() {
             data: moods,
             fill: false,
             borderColor: "#4a90e2",
-            tension: 0.2
+            tension: 0.3
           }]
         },
         options: {
           scales: {
             y: {
               ticks: {
-                // convert mood numbers back into text
                 callback: value => moodLabel(value)
               },
               beginAtZero: true,
@@ -99,8 +99,11 @@ function renderMoodChart() {
         }
       });
     })
-    .catch(err => console.error("Chart error:", err));
+    .catch(err => {
+      console.error("Chart error:", err);
+    });
 }
+
 
 // convert mood text to numbers for charting 
 function moodToValue(mood) {
