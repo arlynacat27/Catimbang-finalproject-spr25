@@ -13,6 +13,11 @@ Running the Server
 4. Site will be live at: 
         http://localhost:3000
 
+Set up '.ev.local' file with these variables:
+NEXT_PUBLIC_SUPABASE_URL=https://lpdlkfrxynwnsjyjlsjd.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxwZGxrZnJ4eW53bnNqeWpsc2pkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcyNzcwMzksImV4cCI6MjA2Mjg1MzAzOX0.C0pdQP-UY8HIDACHPV9M_rpzIwSavzOWCoLbRo06ja0
+
+
 API Endpoints
 5. All of these are handled in 'server.js':
     - `GET /api/quotes` — fetches a motivational quote (ZenQuotes API)
@@ -26,10 +31,17 @@ Features
 8. about page: learn more about the app 
 
 Limitations 
-- entries are stored in memory only (reset on server restart)
+- environment variables must be correctly set in Vercel or build will fail
 - no user authentication 
 
 Future Improvements
 - connect to Supabase for persistent storage 
 - add user login and personalized dashboards 
 - improve mobile layout responsiveness 
+- option to export jounral entries 
+
+File Structure 
+/api/ -> serverless backend endpoints for Vercel
+/public/ -> frontend pages 
+/docs/ -> documentation files (developer manual)
+.env.local -> environment variables

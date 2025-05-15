@@ -1,11 +1,16 @@
+// handles GET and POST requests to retrieve or save jounral entries using Supabase 
 import { createClient } from "@supabase/supabase-js";
 
+
+// environment variables 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 );
 
 export default async function handler(req, res) {
+  
+  // handle GET request - return all entries 
   if (req.method === "GET") {
     try {
       const { data, error } = await supabase
@@ -26,6 +31,7 @@ export default async function handler(req, res) {
     }
   }
 
+  // handle POST request - insert a new journal entry 
   if (req.method === "POST") {
     try {
       const { mood, text } = req.body;
@@ -51,6 +57,7 @@ export default async function handler(req, res) {
     }
   }
 
+  // handle unsupported methods
   res.setHeader("Allow", ["GET", "POST"]);
   res.status(405).end(`Method ${req.method} Not Allowed`);
 }
