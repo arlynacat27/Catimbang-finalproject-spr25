@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // send entry to server
-      fetch("/api/entry", {
+      fetch("/api/entries", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -39,7 +39,7 @@ app.get("/api/advice", async (req, res) => {
 let journalEntries = [];
 
 // post new journal entry
-app.post("/api/entry", (req, res) => {
+app.post("/api/entries", (req, res) => {
   const { mood, text } = req.body;
   const entry = {
     date: new Date().toLocaleDateString(),
