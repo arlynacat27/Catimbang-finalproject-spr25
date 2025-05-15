@@ -1,7 +1,6 @@
-import fetch from "node-fetch";
-
 export default async function handler(req, res) {
   if (req.method === "GET") {
+    const fetch = (await import("node-fetch")).default;
     try {
       const response = await fetch("https://zenquotes.io/api/random");
       const data = await response.json();
@@ -13,4 +12,4 @@ export default async function handler(req, res) {
     res.setHeader("Allow", ["GET"]);
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
-} 
+}
