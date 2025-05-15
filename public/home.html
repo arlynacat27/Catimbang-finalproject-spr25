@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Mental Wellness Check-In</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Daily Mental Wellness Check-In</h1>
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="check-in">
+        <h2>How are you feeling today?</h2>
+        <select id="mood-select">
+          <option value="">Select Mood</option>
+          <option value="happy">😊 Happy</option>
+          <option value="sad">😢 Sad</option>
+          <option value="anxious">😟 Anxious</option>
+          <option value="angry">😠 Angry</option>
+          <option value="tired">😴 Tired</option>
+          <option value="excited">😄 Excited</option>
+        </select>
+
+        <h2>Write down your thoughts:</h2>
+        <textarea id="journal-entry" rows="10" placeholder="What's on your mind?"></textarea>
+        <div></div>
+        <button id="submit-entry" class="button-55">Submit Entry</button>
+
+      </section>
+
+      <section id="inspiration">
+        <h2>Motivational Quote</h2>
+        <p id="quote-text">Loading quote...</p>
+        <h2>Advice of the Day</h2>
+        <p id="advice-text">Loading advice...</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>By: Arlyna Catimbang | INST 377 Final Project </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

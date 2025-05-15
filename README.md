@@ -4,6 +4,8 @@
 
 # Description: A mental wellness jounraling app that helps users track their mood, log daily throughts, and receive motivational quotes and advice. Users can check in daily, view trends over time, and reflect on their emotional well-being.
 
-# Supported Platforms: Google Chrome
+# Target Browsers: Google Chrome, Firefox, Safari (iOS), Edge
 
-# Link to Developer Manual: 
+# Link to full Developer Manual: (docs/developer-manual.md) 
+
+# Author: Arlyna Catimbang | Spring 2025
